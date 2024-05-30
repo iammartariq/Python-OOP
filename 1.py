@@ -1,40 +1,45 @@
-class Student:
+# Question:
+# Implement a class Shape having one attribute no_of_sides, which is set to 1 by default in the
+# constructor.
+# From Shape derive a class Rectangle, having attributes length and width, supporting the
+# following methods:
+#  perimeter( ): returns the perimeter of the rectangle
+#  area( ): returns the area of the rectangle
+#  Also define appropriate constructor setting both length and width to 0 by default and fixing
+# no_of_sides to 4.
+# The object when printed should display the following:
+# Sides: <number of sides>
+# Length: <length>
+# Width: <width>
+# Perimeter: <perimeter of the rectangle>
+# Area: <area of the rectangle>
 
-    __name = ""
-    __roll = ""
-    __marks = [0, 1, 2]
+class Shape:
+    def __init__(self, ns = 1):
+        self.no_of_sides = ns
 
-    def set_name(self, n):
-        self.__name = n
+class Rectangle(Shape):
+    def __init__(self, l = 0, w = 0):
+        self.length = l
+        self.width = w
+        super().__init__(4)
 
-    def set_roll(self, r):
-        self.__roll = r
-
-    def set_marks(self, m):
-        self.__marks = m
-
-    def get_name(self):
-        return self.__name
+    def perimeter(self):
+        return 2*(self.width + self.length)
     
-    def get_roll(self):
-        return self.__roll
+    def area(self):
+        return self.width * self.length
     
-    def get_marks(self):
-        return self.__marks
-    
-    def avg(self):
-        return(self.__marks[0] + self.__marks[1] + self.__marks[2])/3
-    
-    def show(self):
-        print("marks:", self.__marks)
-        print("name:",self.__name)
-        print("roll number:", self.__roll)
+    def __str__(self):
+        s = f"Number of sides: {self.no_of_sides} \n"
+        s += f"Length: {self.length} \n"
+        s += f"Width: {self.width} \n"
+        s += f"Perimeter of the rectangle: {self.perimeter()} \n"
+        s += f"Area of the rectangle: {self.area()}"
+        return s
 
-s1 = Student()
-s1.set_name("Ammar")
-s1.set_roll("23132")
-s1.set_marks([23, 23, 24])
-data = s1.show()
-result = s1.avg()
-print(data)
-print(result)
+r = Rectangle(2, 3)
+print(r)
+
+s = Shape(4)
+print(s)
