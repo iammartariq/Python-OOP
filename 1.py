@@ -1,27 +1,40 @@
-class Circle:
-    def __init__(self, radius, color):
-        self.radius = radius
-        self.color = color
+class Student:
 
-    def setRadius(self, r):
-        self.radius = r
+    __name = ""
+    __roll = ""
+    __marks = [0, 1, 2]
 
-    def setColor(self, c):
-        self.color = c
+    def set_name(self, n):
+        self.__name = n
 
-    def getRadius(self):
-        return self.radius
-    
-    def getColor(self):
-        return self.color
-    
-    def getCircumference(self):
-        return 2*3.142*self.getRadius()
-    
-    def getArea(self):
-        return 3.142*(self.getRadius()**2)
-    
+    def set_roll(self, r):
+        self.__roll = r
 
-c1 = Circle(4, "blue")
-print(c1.getArea())
-print(c1.getCircumference())
+    def set_marks(self, m):
+        self.__marks = m
+
+    def get_name(self):
+        return self.__name
+    
+    def get_roll(self):
+        return self.__roll
+    
+    def get_marks(self):
+        return self.__marks
+    
+    def avg(self):
+        return(self.__marks[0] + self.__marks[1] + self.__marks[2])/3
+    
+    def show(self):
+        print("marks:", self.__marks)
+        print("name:",self.__name)
+        print("roll number:", self.__roll)
+
+s1 = Student()
+s1.set_name("Ammar")
+s1.set_roll("23132")
+s1.set_marks([23, 23, 24])
+data = s1.show()
+result = s1.avg()
+print(data)
+print(result)
